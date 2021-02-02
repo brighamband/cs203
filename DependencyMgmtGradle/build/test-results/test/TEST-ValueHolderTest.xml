@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ValueHolderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-21T21:32:26" hostname="BRIGHAM-LAPTOP" time="0.08">
+  <properties/>
+  <testcase name="testJsonConversion()" classname="ValueHolderTest" time="0.08"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
