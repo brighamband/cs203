@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SimpleCoverageFunctionsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-20T04:32:41" hostname="BRIGHAM-LAPTOP" time="0.061">
+  <properties/>
+  <testcase name="testReturnLargest()" classname="SimpleCoverageFunctionsTest" time="0.053"/>
+  <testcase name="testAddTwoNum()" classname="SimpleCoverageFunctionsTest" time="0.001"/>
+  <testcase name="testDoWeirdStuff()" classname="SimpleCoverageFunctionsTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
