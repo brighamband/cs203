@@ -60,16 +60,18 @@ public class PartTwoTest {
 
 
     @Test
-    void deleteUserAccount() {
-        Mockito.when(databaseMock.deleteUserAccount(Mockito.anyString())).thenReturn(true);
-        Mockito.when(databaseMock.deleteUserAccount("")).thenReturn(false);
-        Mockito.when(databaseMock.deleteUserAccount("exc")).thenThrow(SQLException.class);
+    void deleteUserAccount() throws SQLException {
+        Mockito.when(databaseMock.getUserId(Mockito.anyString(), Mockito.anyString())).thenReturn("ABC-123");
+        Mockito.when(databaseMock.getUserId("Brigham","password")).thenThrow(SQLException.class);
+        Mockito.when(databaseMock.deleteUserAccount("ABC-123")).thenReturn(false);
 
-        partTwo.deleteUserAccount("ABC-123", "pass123");
-        partTwo.deleteUserAccount("", "");
-        partTwo.deleteUserAccount("exc", "exc");
+        partTwo.deleteUserAccount("anything", "anything");
 
-//        Mockito.verify(databaseMock).deleteUserAccount();
-//        Mockito.verify(databaseMock.)
+        Mockito.verify(databaseMock).deleteUserAccount("ABC-123");
+        Mockito.verify(databaseMock).logErrorMessage("Deletion attempt: User was not deleted");
+
+        partTwo.deleteUserAccount("Brigham", "password");
+
+        Mockito.verify(databaseMock).logErrorMessage("SQL Error during Deletion");
     }
 }

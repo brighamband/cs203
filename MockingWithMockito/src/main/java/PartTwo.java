@@ -41,7 +41,7 @@ public class PartTwo {
 
     }
 
-    void deleteUserAccount(String username, String password) {
+    void deleteUserAccount(String username, String password) throws SQLException {
         try {
             String uuid = database.getUserId(username, password);
             if(!database.deleteUserAccount(uuid)) {
