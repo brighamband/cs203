@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="WeatherStationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-03-05T19:13:23" hostname="BRIGHAM-LAPTOP" time="0.782">
+  <properties/>
+  <testcase name="testRunTornadoWarningCheck()" classname="WeatherStationTest" time="0.749"/>
+  <testcase name="testTemperatureCalibrationTest()" classname="WeatherStationTest" time="0.018"/>
+  <testcase name="testAnemometerCalibrationCheck()" classname="WeatherStationTest" time="0.006"/>
+  <testcase name="testRunStormWarningCheck()" classname="WeatherStationTest" time="0.007"/>
+  <system-out><![CDATA[Alpha: 20.0 Beta: 20.0 Diff: 0.0
+Alpha: 40.0 Beta: 50.0 Diff: 10.0
+Humidity: 35.7 AirPressure: 800.0 Temp: 46.0
+Humidity: 20.0 AirPressure: 910.0 Temp: 80.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

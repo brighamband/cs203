@@ -1,0 +1,18 @@
+instruments/Thermometer.java
+ instruments.Thermometer
+instruments/satellite/SatConn.java
+ instruments.satellite.SatConn
+instruments/Hygrometer.java
+ instruments.Hygrometer
+instruments/Anemometer.java
+ instruments.Anemometer
+instruments/satellite/SatelliteDataCache.java
+ instruments.satellite.SatelliteDataCache
+instruments/satellite/SatConnDummy.java
+ instruments.satellite.SatConnDummy
+instruments/Barometer.java
+ instruments.Barometer
+instruments/satellite/SatelliteUplink.java
+ instruments.satellite.SatelliteUplink
+WeatherStation.java
+ WeatherStation
