@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomFileReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sonar-tutorial</a> &gt; <a href="index.source.html" class="el_package">edu.byu.cs.sonar</a> &gt; <span class="el_source">CustomFileReader.java</span></div><h1>CustomFileReader.java</h1><pre class="source lang-java linenums">package edu.byu.cs.sonar;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
+/**
+ * This is a class that will handle the file reading
+ */
+class CustomFileReader {
+    /**
+     * The scanner that will read the dictionary
+     */
+    private String path;
+
+    /**
+     * The sentence that will be constructed
+     */
+    private String newSentence;
+    /**
+     * The number of words read in by the scanner
+     */
+    private int count;
+
+    /**
+     * Constructor for our class
+     *
+     * @param fileName the file to be read in
+     */
+<span class="fc" id="L32">    CustomFileReader(final String fileName) {</span>
+<span class="fc" id="L33">        path = fileName;</span>
+<span class="fc" id="L34">        newSentence = &quot;&quot;;</span>
+<span class="fc" id="L35">        count = 0;</span>
+<span class="fc" id="L36">    }</span>
+
+    /**
+     * This will find how many words are in the text file provided
+     *
+     * @return how many words in the file
+     */
+    int howManyWordsInFile() throws FileNotFoundException {
+<span class="fc" id="L44">        try (Scanner s = createScanner()) {</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+<span class="fc" id="L46">                s.next();</span>
+<span class="fc" id="L47">                count++;</span>
+            }
+        }
+<span class="fc" id="L50">        return count;</span>
+    }
+
+    /**
+     * This will return the word at the given index in the text file
+     *
+     * @param index which number word should be taken back
+     * @return correct word
+     */
+    String returnThatWord(final int index) throws FileNotFoundException {
+<span class="fc" id="L60">        String returnWord = &quot;&quot;;</span>
+
+<span class="fc" id="L62">        try (Scanner s = createScanner()) {</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            for (int i = 0; i &lt; index; i++) {</span>
+<span class="fc" id="L64">                returnWord = s.next();</span>
+            }
+        }
+<span class="fc" id="L67">        return returnWord;</span>
+    }
+
+    /**
+     * This will search for a word that contains the same letter as the
+     * one provided in the argument and return that word
+     *
+     * @param letter eventually will be the character we are looking for in the word
+     */
+    void findNewWord(final CharSequence letter) throws FileNotFoundException {
+<span class="fc" id="L77">        try (Scanner s = createScanner()) {</span>
+
+<span class="fc" id="L79">            String word = s.next();</span>
+
+<span class="fc bfc" id="L81" title="All 2 branches covered.">            while (!word.contains(letter)) {</span>
+<span class="fc" id="L82">                word = s.next();</span>
+            }
+<span class="fc" id="L84">            newSentence = newSentence + word + &quot; &quot;;</span>
+        }
+<span class="fc" id="L86">    }</span>
+
+    /**
+     * This is a standard getter
+     *
+     * @return the sentence created by the reader
+     */
+    String getNewSentence() {
+<span class="fc" id="L94">        return newSentence;</span>
+    }
+
+    /**
+     * This is standard setter
+     *
+     * @param betterSentence The new sentence for the reader
+     */
+    void setNewSentence(final String betterSentence) {
+<span class="fc" id="L103">        newSentence = betterSentence;</span>
+<span class="fc" id="L104">    }</span>
+
+    /**
+     * This is a private getter since only this class will
+     * make use of it
+     *
+     * @return the number of words in the dictionary
+     */
+    private int getCount() {
+<span class="nc" id="L113">        return count;</span>
+    }
+
+    String getPath() {
+<span class="fc" id="L117">        return path;</span>
+    }
+
+    /**
+     * Returns a hash number so this data type can be used for
+     * bucketing and stored in a Hash implementation like a
+     * HashMap, HashTable, HashSet, etc.
+     *
+     * @return hashcode for this specific instance of a reader
+     */
+    @Override
+    public int hashCode() {
+<span class="nc" id="L129">        return Integer.parseInt(newSentence) * count * 3;</span>
+    }
+
+    /**
+     * Returns information: of the sentence this reader holds,
+     * as well as the number of words in the dictionary from
+     * which this reader reads.
+     *
+     * @return String for this specific instance of a reader
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L141">        return newSentence + &quot; &quot; + count;</span>
+    }
+
+    /**
+     * Checks if the object being processed is an
+     * instance of this exact class. That includes
+     * type and member variables.
+     *
+     * @param object data type sent to be processed
+     * @return true or false based on the processed object
+     */
+    @Override
+    public boolean equals(final Object object) {
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (object == null) {</span>
+<span class="nc" id="L155">            return false;</span>
+        }
+
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (object.getClass() != this.getClass()) {</span>
+<span class="nc" id="L159">            return false;</span>
+        }
+
+<span class="nc" id="L162">        final CustomFileReader comparedReader = (CustomFileReader) object;</span>
+
+<span class="nc bnc" id="L164" title="All 2 branches missed.">        if (!comparedReader.getNewSentence().equals(newSentence)) {</span>
+<span class="nc" id="L165">            return false;</span>
+        }
+
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        if (comparedReader.getCount() != count) {</span>
+<span class="nc" id="L169">            return false;</span>
+        }
+
+<span class="nc" id="L172">        return comparedReader.getPath().equals(path);</span>
+    }
+
+    private Scanner createScanner() throws FileNotFoundException {
+<span class="fc" id="L176">        return new Scanner(new InputStreamReader(</span>
+                new FileInputStream(path), StandardCharsets.UTF_8));
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

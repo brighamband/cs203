@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CalculatorTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-03-13T00:23:54" hostname="BRIGHAM-LAPTOP" time="0.051">
+  <properties/>
+  <testcase name="testPower_zeroBaseZeroExponent()" classname="CalculatorTest" time="0.033"/>
+  <testcase name="testPower_posBaseNegExponent()" classname="CalculatorTest" time="0.002"/>
+  <testcase name="testAdd()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testSubtract()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_zeroBasePosExponent()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_negBasePosExponent()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_zeroBaseNegExponent()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_posBasePosExponent()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_negBaseZeroExponent()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_negBaseNegExponent()" classname="CalculatorTest" time="0.001"/>
+  <testcase name="testPower_posBaseZeroExponent()" classname="CalculatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
